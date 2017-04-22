@@ -11,15 +11,35 @@ $statusDom = new Dom;
 $signalDom = new Dom;
 $dstDom = new Dom;
 $ustDom = new Dom;
-
-//SEARCH THE STATUS PAGE
-
-$statusDom->loadFromUrl('http://192.168.100.1/indexData.htm');
+//**************************************
+//
+//	DEFINABLE SEARCH VALUES
+//
+//	Feel free to adjust the "expected" values and ranges below. 
+//	They are set to common standards, but you may want to tweak it.	
+//
+//**************************************
 
 $statusSearchStrings = [
 	'Cable Modem Status'	=>	'Operational',
 	'System Up Time'		=>	null,
 ];
+
+$signalSearchStrings = [
+	'downstream'		=>	[
+		'Signal to Noise Ratio'		=>	[32, 100,], // values are [low, high]
+		'Power Level'				=>	[-8, 8,], 	// values are [low, high]
+		//'Downstream Modulation'		=>	"QAM256",
+	],
+	'upstream'			=>	[
+		'Power Level'				=>	[40, 51,],	// values are [low, high]
+		'Ranging Status'			=>	"Success",
+	],
+];
+
+//SEARCH THE STATUS PAGE
+
+$statusDom->loadFromUrl('http://192.168.100.1/indexData.htm');
 
 $statusBlob = $statusDom->find('td');
 
@@ -41,17 +61,6 @@ $signalDom->loadFromUrl('http://192.168.100.1/cmSignalData.htm');
 
 // Set search fields. If arrays are found, we assume first value is min, second value is max, and third value is unit. This should be wrapped in a class at some point.
 
-$signalSearchStrings = [
-	'downstream'		=>	[
-		'Signal to Noise Ratio'		=>	[32, 100,],
-		'Power Level'				=>	[-8, 8,],
-		//'Downstream Modulation'		=>	"QAM256",
-	],
-	'upstream'			=>	[
-		'Power Level'				=>	[40, 51,],
-		'Ranging Status'			=>	"Success",
-	],
-];
 
 // Start with downstream values
 
