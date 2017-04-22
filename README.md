@@ -1,5 +1,5 @@
 # modem-watcher
-PHP script that watches for signal health and general operation of your Motorola Surfboard. Details are logged to SYSLOG for record-keeping.
+PHP script that watches for signal health and general operation of your Motorola Surfboard. Details are logged to SYSLOG for record-keeping. 
 
 ## Setup and Usage
 
@@ -13,6 +13,8 @@ PHP script that watches for signal health and general operation of your Motorola
 3. **Execute the Script Directly**
     + Execute ```php /{your path}/modem-watcher/getSbDetails.php``` 
 
-## Details
+## Details and Models Supported
 
-This script loads the web interface for you Motorola surfboard and parses the page. It grabs details related to the status of the device and its signal strength. All the details are written to SYSLOG with the application stamp of "surf-log" though in writing this I see that it should probably point to modem-watcher...
+This script loads the web interface for you Motorola surfboard and parses the page. It grabs details related to the status of the device and its signal strength. All the details are written to SYSLOG with the application stamp of "modem-watcher."
+
+Currently, this script has only been tested using a model **SB6121 Motorola** Surfboard. I am interested in hearing about your success and failure on a specific model number. 
