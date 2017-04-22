@@ -1,9 +1,11 @@
 # modem-watcher
-
+PHP script that watches for signal health and general operation of your Motorola Surfboard. Details are logged to SYSLOG for record-keeping.
 
 ## Setup
 
 Copied from another project.. Will Clean up soonish...
+
+
 
 1. **Setup AWS CLI Tools** ( _[More Details @ docs.aws.amazon.com](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)_ )
     + Setup an AWS account and get Security Credentials
