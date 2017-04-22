@@ -5,11 +5,11 @@ PHP script that watches for signal health and general operation of your Motorola
 
 1. **Verify that PHP CLI in installed**
     + Execute ```php -v``` and see that PHP v5 or greater is installed
-1. **Update Composer** ( _[More Details @ https://getcomposer.org/](https://getcomposer.org/doc/00-intro.md)_ )
+1. **Run Composer Installs** ( _[More Details @ https://getcomposer.org/](https://getcomposer.org/doc/00-intro.md)_ )
     + In the project directory, execute: ```composer install```
 2. **Set the Cron**
     + Execute ```crontab -e``` 
-    + Add ```0       *       *       *       *       php /{your path}/modem-watcher/getSbDetails.php``` to the end
+    + Add ```0       *       *       *       *       php /{your path}/modem-watcher/getSbDetails.php``` to the end (_this set the script to run every hour_)
 3. **Execute the Script Directly**
     + Execute ```php /{your path}/modem-watcher/getSbDetails.php``` 
 
