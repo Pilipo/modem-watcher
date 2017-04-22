@@ -3,7 +3,7 @@
 // Assuming you installed from Composer:
 require "vendor/autoload.php";
 use PHPHtmlParser\Dom;
-openlog('surf-log', LOG_PID | LOG_PERROR, LOG_LOCAL0);
+openlog('modem-watcher', LOG_PID | LOG_PERROR, LOG_LOCAL0);
 
 syslog(LOG_INFO, "INFO >> Parse of surfboard starting.");
 
