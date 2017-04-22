@@ -1,24 +1,18 @@
 # modem-watcher
 PHP script that watches for signal health and general operation of your Motorola Surfboard. Details are logged to SYSLOG for record-keeping.
 
-## Setup
+## Setup and Usage
 
-Copied from another project.. Will Clean up soonish...
-
-
-
-1. **Setup AWS CLI Tools** ( _[More Details @ docs.aws.amazon.com](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)_ )
-    + Setup an AWS account and get Security Credentials
-    + From command line, execute: ```apt install pip```
-    + From command line, execute: ```pip install --upgrade --user awscli```
-    + From command line, execute: ```aws configure``` (_You will need your ID, Key, and Region from AWS_)
-2. **Copy and Configure ```config.sh```**
-    + Copy ```sample.config.sh``` and rename to ```config.sh```
-    + Update the ZONEID and RECORDSET variables in ```config.sh``` to your Route53 values
-3. **Test the Script**
-    + Verify that ```route53.sh``` is executable 
-    + Execute ```./route53.sh```
-    + Inspect the ```.ip``` and ```.log``` files to verify success
-4. **Set the Cron**
+1. **Verify that PHP CLI in installed**
+    + Execute ```php -v``` and see that PHP v5 or greater is installed
+1. **Update Composer** ( _[More Details @ https://getcomposer.org/](https://getcomposer.org/doc/00-intro.md)_ )
+    + In the project directory, execute: ```composer install```
+2. **Set the Cron**
     + Execute ```crontab -e``` 
-    + Add ```0       *       *       *       *       /home/pi/Scripts/route53/route53.sh``` to the end
+    + Add ```0       *       *       *       *       php /{your path}/modem-watcher/getSbDetails.php``` to the end
+3. **Execute the Script Directly**
+    + Execute ```php /{your path}/modem-watcher/getSbDetails.php``` 
+
+## Details
+
+This script loads the web interface for you Motorola surfboard and parses the page. It grabs details related to the status of the device and its signal strength. All the details are written to SYSLOG with the application stamp of "surf-log" though in writing this I see that it should probably point to modem-watcher...
