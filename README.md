@@ -1,5 +1,5 @@
 # modem-watcher
-PHP script that watches for signal health and general operation of your Motorola Surfboard. Details are logged to SYSLOG for record-keeping. 
+PHP script that watches for signal health and general operation of your Motorola SB6121 Surfboard. Details are logged to SYSLOG for record-keeping. 
 
 ## Setup and Usage
 
