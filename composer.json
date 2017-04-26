@@ -1,5 +1,13 @@
 {
     "require": {
         "paquettg/php-html-parser": "^1.7"
-    }
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "2.*"
+    },
+	"scripts": {
+		"post-install-cmd": [
+			"bash contrib/setup.sh"
+		]
+	}
 }
