@@ -32,7 +32,9 @@ if [ "$FILES" != "" ]
 then
     echo "Running Code Sniffer..."
 
+    command -v uuidgen >/dev/null 2>&1 || { echo >&2 "I require foo but it's not installed.  Aborting."; exit 1; }
     TMP_DIR=/tmp/$(uuidgen)
+	echo "Creating $TMP_DIR"
     mkdir -p $TMP_DIR
     for FILE in $SFILES
     do
